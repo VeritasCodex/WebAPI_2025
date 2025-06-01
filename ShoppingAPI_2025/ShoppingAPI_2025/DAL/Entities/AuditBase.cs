@@ -11,5 +11,8 @@ namespace ShoppingAPI_2025.DAL.Entities
         public virtual DateTime? ModifiedDate { get; set; }// Para guardar todo registro que se modifico con su date
 
         //Usamos la notacion Elvis(?) para que el campo no sea obligatorio(Permite guardar nulos)
+
+        [Display(Name = "Estados/Departamentos")]
+        public ICollection<State>? States { get; set; }
     }
 }

@@ -3,15 +3,22 @@ using System.Text.Json.Serialization;
 
 namespace ShoppingAPI_2025.DAL.Entities
 {
-    public class Country: AuditBase
+    public class State: AuditBase
     {
-        [Display(Name="Pais")]//Para identificar el nombre mas facil
+        [Display(Name = "Estado/Departamento")]//Para identificar el nombre mas facil
         [MaxLength(50, ErrorMessage = "El campo {0} debe tener maximo {1} caracteres.")]//Longitud maxima
         [Required(ErrorMessage = "El campo {0} es obligatorio")]//Campo obligatorio
         public string Name { get; set; }
 
-        [Display(Name = "Estado/Departamentos")]
+        // Asi es como relaciono 2 tablas con EF Core:
+        [Display(Name = "Pais")]
         [JsonIgnore]
-        public ICollection<State>? States { get; set; }
+        public Country? Country { get; set; }
+
+        //Fk
+        [Display(Name = "Id Pais")]
+        
+        public Guid CountryId { get; set; }
+
     }
 }

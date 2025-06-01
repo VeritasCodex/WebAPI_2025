@@ -14,6 +14,8 @@ builder.Services.AddDbContext<DataBaseContext>(options => options.UseSqlServer(b
 
 //Contenedor de dependencia
 builder.Services.AddScoped<ICountryService, CountryService>();
+builder.Services.AddScoped<IStateService, StateService>();
+
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
